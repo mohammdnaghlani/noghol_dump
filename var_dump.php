@@ -183,15 +183,17 @@ function checkArray($values)
         foreach($values as $key => $value){           
            
             if(is_array($value)){               
-             
+                
                 $temp .= "<code  style=\"font_size : 11px ;margin-left:10px\" > '" . $key . "'=> </code> " . PHP_EOL  ;
               
                 $temp .= '<br>' . PHP_EOL ;
                
                 $temp .= '<div style="margin-left:30px" >' . PHP_EOL;
-               
-                $temp .= noghol_debug($value);
-               
+                if($key == 'GLOBALS'){
+                    continue;
+                }else{
+                    $temp .= noghol_debug($value);
+                }      
                 $temp .= '<br>' .PHP_EOL  ;
                
                 $temp .= '</div>' ;
@@ -375,7 +377,7 @@ $ob = [$val2 , 124, $val1];
 $ob = (object) $ob ; 
 //------------------------------------
 //echo 'myDump Function : <br>';
-myDump($ob , $val);
+myDump($GLOBALS);
 //-------------------------------------
 echo 'var_dump Function : <br>';
-//var_dump($ob , $val);
+//var_dump($GLOBALS);
