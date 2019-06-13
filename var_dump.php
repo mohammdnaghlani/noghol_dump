@@ -1,23 +1,25 @@
 <?php
 // output function
-function myDump($values = null)
+function myDump(...$values)
 {
 
-     $address =  debug_backtrace() ;
+    foreach($values as $key => $value){
+        $address =  debug_backtrace() ;
 
-     $file = $address[0]['file'] ;
-
-     $line = $address[0]['line'] ;
-
-     $address_output = '<code style="font_size = 10px">' .PHP_EOL ;
-
-     $address_output .= $file . ' : ' . $line . PHP_EOL ;
-
-     $address_output .= '</code><br>' . PHP_EOL ;
-
-     $debug = noghol_debug($values);
-
-     echo  $address_output  . $debug;
+        $file = $address[0]['file'] ;
+   
+        $line = $address[0]['line'] ;
+   
+        $address_output = '<code style="font_size = 10px">' .PHP_EOL ;
+   
+        $address_output .= $file . ' : ' . $line . PHP_EOL ;
+   
+        $address_output .= '</code><br>' . PHP_EOL ;
+   
+        $debug = noghol_debug($value);
+   
+        echo  $address_output  . $debug;
+    }
 
 }
 // checker All function
@@ -366,14 +368,14 @@ function get_bool_or_null($value)
 }
 
 /* use */
-$val =['mohammad', 'naghlani', 120 ,"test" => [] , ['a','b',[1,2,3] , 1.1] ,true ,false , null];
+$val =[['mohammad', 'naghlani'], [120] ,"test" => [] , ['a','b',[1,2,3] , 1.1] ,true ,false , null];
 $val1 = (object) $val ;
 $val2 = (object) $val[3][2] ;
 $ob = [$val2 , 124, $val1];
 $ob = (object) $ob ; 
 //------------------------------------
-echo 'myDump Function : <br>';
-myDump($ob);
+//echo 'myDump Function : <br>';
+myDump($ob , $val);
 //-------------------------------------
 echo 'var_dump Function : <br>';
-var_dump($ob);
+//var_dump($ob , $val);
