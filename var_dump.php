@@ -93,7 +93,12 @@ function checkObject($value)
                 
                 $temp .= '<div style="margin-left:30px" >' . PHP_EOL;
                
-                $temp .= noghol_debug($val) ;
+                if($val === $value){
+                    $temp .= "<code  style='font_size : 11px;margin-left:10px' >  '&object' =></code>" . PHP_EOL;
+                    continue;
+                }else{
+                    $temp .= noghol_debug($value);
+                } 
                
                 $temp .= '</div>' . PHP_EOL;
             
@@ -103,7 +108,12 @@ function checkObject($value)
               
                 $temp .= '<div style="margin-left:30px" >' . PHP_EOL;
                
-                $temp .= noghol_debug($val) ;
+                if($val === $value){
+                    $temp .= "<code  style=\"font_size : 11px ;margin-left:10px\" > &array=> </code> " . PHP_EOL  ;
+                    continue;
+                }else{
+                    $temp .= noghol_debug($value);
+                } 
                
                 $temp .= '</div>' . PHP_EOL;
            
@@ -189,7 +199,8 @@ function checkArray($values)
                 $temp .= '<br>' . PHP_EOL ;
                
                 $temp .= '<div style="margin-left:30px" >' . PHP_EOL;
-                if($key == 'GLOBALS'){
+                if($value === $values){
+                    $temp .= "<code  style=\"font_size : 11px ;margin-left:10px\" > &array=> </code> " . PHP_EOL  ;
                     continue;
                 }else{
                     $temp .= noghol_debug($value);
@@ -377,7 +388,8 @@ $ob = [$val2 , 124, $val1];
 $ob = (object) $ob ; 
 //------------------------------------
 //echo 'myDump Function : <br>';
-myDump($GLOBALS);
+//myDump($GLOBALS);
 //-------------------------------------
 echo 'var_dump Function : <br>';
-//var_dump($GLOBALS);
+
+myDump($GLOBALS);
