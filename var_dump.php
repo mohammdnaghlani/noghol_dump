@@ -124,7 +124,7 @@ function checkObject($value)
                
                 if (gettype($val) == 'string') {
                    
-                    $temp .= '<code style="font_size: 10px">strint </code>';
+                    $temp .= '<code style="font_size: 10px">string </code>';
                    
                     $temp .= "<code  style='font_size: 9px ; color:red '>" . PHP_EOL;
                    
@@ -215,7 +215,7 @@ function checkArray($values)
                
                 if( gettype($value) == 'string'){
                    
-                    $temp .= '<code style="font_size: 10px">strint </code>';
+                    $temp .= '<code style="font_size: 10px">string </code>';
                    
                     $temp .= "<code  style='font_size: 9px ; color:red '>" . PHP_EOL ;
                   
@@ -284,7 +284,7 @@ function checkArray($values)
 function chekString($value)
 {
 
-    $temp = '<code style="font_size: 10px">strint </code>';
+    $temp = '<code style="font_size: 10px">string </code>';
 
     $temp .= "<code  style='font_size: 9px ; color:red '>" . PHP_EOL;
 
